@@ -43,4 +43,6 @@ RSpec.describe 'the shelter show' do
 
     expect(page).to have_current_path("/shelters/#{shelter.id}/pets")
   end
+
+
 end

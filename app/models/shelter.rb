@@ -36,6 +36,10 @@ class Shelter < ApplicationRecord
     adoptable_pets.where('age >= ?', age_filter)
   end
 
+  def adoptable_pets_average_age
+    adoptable_pets.average(:age).to_i
+  end
+
   def self.shelter_with_pending_app
     Shelter.joins(pets: :applications).where("applications.status = 'Pending'").order(:name)
   end
