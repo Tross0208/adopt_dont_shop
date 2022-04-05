@@ -55,10 +55,9 @@ RSpec.describe 'the applications show' do
 			expect(page).to have_content(@pet_1.breed)
 			expect(page).to have_content(@pet_1.age)
 		end
-
 	end
 
-	 it 'has an area to enter description and changes status on submittal' do
+	it 'has an area to enter description and changes status on submittal' do
 	 	visit "/applications/#{@application.id}"
 	 	fill_in "Search by name", with: "Dianne"
 	 	click_button "Submit"
@@ -75,7 +74,7 @@ RSpec.describe 'the applications show' do
 		expect(page).to have_content(@application.description)
 		expect(page).to_not have_content("Search by name")
 
-	 end
+	end
 
 	it 'does not show submit application if no pets are added' do
 		visit "/applications/#{@application.id}"
@@ -84,40 +83,36 @@ RSpec.describe 'the applications show' do
 		expect(page).to_not have_content(@pet_1.name)
 		expect(page).to_not have_content("Description")
 	end
-		it 'shows names for partial matches' do
 
-			visit "/applications/#{@application.id}"
-			fill_in "Search by name", with: "ann"
-			click_button "Submit"
-			click_button "Adopt #{@pet_1.name}"
+	it 'shows names for partial matches' do
 
-			expect(current_path).to eq("/applications/#{@application.id}")
+		visit "/applications/#{@application.id}"
+		fill_in "Search by name", with: "ann"
+		click_button "Submit"
+		click_button "Adopt #{@pet_1.name}"
 
-			within("#pets_selected") do
-				expect(page).to have_content(@pet_1.name)
-				expect(page).to have_content(@pet_1.breed)
-				expect(page).to have_content(@pet_1.age)
-			end
+		expect(current_path).to eq("/applications/#{@application.id}")
 
+		within("#pets_selected") do
+			expect(page).to have_content(@pet_1.name)
+			expect(page).to have_content(@pet_1.breed)
+			expect(page).to have_content(@pet_1.age)
 		end
+	end
 
-		it 'shows name case insensitively' do
+	it 'shows name case insensitively' do
 
-			visit "/applications/#{@application.id}"
-			fill_in "Search by name", with: "DiAnNe"
-			click_button "Submit"
-			click_button "Adopt #{@pet_1.name}"
+		visit "/applications/#{@application.id}"
+		fill_in "Search by name", with: "DiAnNe"
+		click_button "Submit"
+		click_button "Adopt #{@pet_1.name}"
 
-			expect(current_path).to eq("/applications/#{@application.id}")
+		expect(current_path).to eq("/applications/#{@application.id}")
 
-			within("#pets_selected") do
-				expect(page).to have_content(@pet_1.name)
-				expect(page).to have_content(@pet_1.breed)
-				expect(page).to have_content(@pet_1.age)
-			end
-
+		within("#pets_selected") do
+			expect(page).to have_content(@pet_1.name)
+			expect(page).to have_content(@pet_1.breed)
+			expect(page).to have_content(@pet_1.age)
 		end
-
-
-
+	end
 end
