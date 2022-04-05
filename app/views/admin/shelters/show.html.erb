@@ -6,9 +6,12 @@
 <p class=Adoptable-pet-average-age">Adoptable Pets Average Age: <%= @shelter.adoptable_pets_average_age %></p>
 <p class="Adoptable-pet-count">Adoptable Pets Count: <%= @shelter.adoptable_pets.count %></p>
 <section id = "action_required">
-	<h4>Pending Pets for Review:</h4>
+	<h3>Pending Pets for Review:</h3>
 	<% @shelter.pending_pets_for_review.each do |pet| %>
-		<p><%= pet.name %></p>
+		<h4><%= pet.name %></h4>
+		<% @shelter.pending_applications_for_pet(pet.id).each do |app| %>
+			<%=link_to "Application for #{pet.name}", "/admin/applications/#{app.id}" %>
+		<% end %>
 	<% end %>
 
 

@@ -13,7 +13,7 @@ RSpec.describe 'the admin shelter show' do
     expect(page).to have_content("Adoptable Pets Average Age: 4")
   end
 
-    it 'displays the count of pets adoptable at this shelter' do 
+  it 'displays the count of pets adoptable at this shelter' do 
     shelter_1 = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
  
     pet_1 = shelter_1.pets.create(name: 'Mr. Pirate', breed: 'tuxedo shorthair', age: 5, adoptable: true)
@@ -26,7 +26,7 @@ RSpec.describe 'the admin shelter show' do
 
 
 
-    it 'displays the count of adopted pets at this shelter' do 
+  it 'displays the count of adopted pets at this shelter' do 
     shelter_1 = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
  
     pet_1 = shelter_1.pets.create(name: 'Mr. Pirate', breed: 'tuxedo shorthair', age: 5, adoptable: true)
@@ -46,7 +46,7 @@ RSpec.describe 'the admin shelter show' do
     expect(page).to have_content("Number of Adopted Pets: 2")
   end
 
-   it 'displays the count of adopted pets at this shelter' do 
+  it 'displays the count of adopted pets at this shelter and a link to its application' do 
     shelter_1 = Shelter.create(name: 'Aurora shelter', city: 'Aurora, CO', foster_program: false, rank: 9)
  
     pet_1 = shelter_1.pets.create(name: 'Mr. Pirate', breed: 'tuxedo shorthair', age: 5, adoptable: true)
@@ -63,6 +63,19 @@ RSpec.describe 'the admin shelter show' do
       expect(page).to have_content(pet_1.name)
       expect(page).to have_content(pet_2.name)
     end
-  end
 
+    visit "/admin/shelters/#{shelter_1.id}" 
+
+    within("#action_required") do 
+      click_on "Application for #{pet_1.name}"
+      expect(current_path).to eq("/admin/applications/#{application_1.id}")
+    end
+
+    visit "/admin/shelters/#{shelter_1.id}" 
+
+    within("#action_required") do 
+      click_on "Application for #{pet_1.name}"
+      expect(current_path).to eq("/admin/applications/#{application_1.id}")
+    end
+  end
 end
