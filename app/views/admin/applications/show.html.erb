@@ -3,27 +3,42 @@
 	<p>Applicant Name: <%= @application.name %></p>
 	<p>Applicant Address: <%= @application.street_address%>, <%= @application.city %>, <%= @application.state %> <%= @application.zipcode %></p>
 	<p>Application description: <%=@application.description%></p>
-	<p>Application status: <%=@application.status%></p>
 </section>
 
 	<% if @application.pets_added != [] %>
+		  	<h3>Pets Added:</h3>
 		<% @application.pets_added.each_with_index do |pet, index| %>
 		  <section id="pets_added-<%=pet.id%>">
-		  	<h2>Pets Added:</h2>
 		  	<h4>Pet No. <%=index +1 %></h4>
 			<p>Name: <%= pet.name %></p> 
 			<p>Age: <%= pet.age %></p> 
 			<p>Breed: <%= pet.breed %></p> 
 
+			
 			<% if @application.application_pet_status(pet.id) %>
 				<h4>Application for <%=pet.name%> <%=@application.application_pet_status(pet.id)%></h4>
 			<% else %>
+				<% if pet.adoptable %>
 				<p><%= button_to "Approve application for #{pet.name}", "/admin/applications/#{@application.id}/pets", method: :patch, params: {:pet_id => pet.id, :application_id => @application.id, :status => 'approved'}%></p>
 				<p><%= button_to "Reject application for #{pet.name}", "/admin/applications/#{@application.id}/pets", method: :patch, params: {:pet_id => pet.id, :application_id => @application.id, :status => 'rejected'}%></p>
+				<% else %>
+					<h4><%= pet.name %> has been adopted!</h4>
+					<p><%= button_to "Reject application for #{pet.name}", "/admin/applications/#{@application.id}/pets", method: :patch, params: {:pet_id => pet.id, :application_id => @application.id, :status => 'rejected'}%></p>
+				<% end %>
+
 			<% end %>
+	
+			<% if @application.all_pets_reviewed? %>
+				<% if @application.all_pets_approved? %>
+					<% @application.approve_application %>
+				<% elsif %>
+					<% @application.reject_application %>
+				<%end %>
+			<% end %>	
 
 		  </section>
 		<% end %>
+			<h2>Application Status: <%=@application.status%></h2>
 	<% end %>
 
 

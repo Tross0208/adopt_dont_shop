@@ -49,16 +49,19 @@ RSpec.describe Shelter, type: :model do
     end
 
     describe '#shelter_with_pending_app' do 
-      it 'returns the pending applications linked to this shelter' do 
+      it 'returns the pending applications linked to this shelter alphabetically by name' do 
         application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
         application_2 = Application.create!(name: "Kim G", street_address:"2000 Something Blvd", city: "Denver", state: "CO", zipcode: 80124)
         application_pet1 = ApplicationPet.create!(application: application_1, pet: @pet_1)
-        application_pet2 = ApplicationPet.create!(application: application_2, pet: @pet_1)
+        application_pet2 = ApplicationPet.create!(application: application_2, pet: @pet_3)
         application_1.description = "I am lonely and need fluffy mammals"
         application_1.save
         application_1.status = "Pending"
         application_1.save
-        expect(Shelter.shelter_with_pending_app).to eq([@shelter_1])
+        application_2.status = "Pending"
+        application_2.save
+
+        expect(Shelter.shelter_with_pending_app).to eq([@shelter_1, @shelter_3])
       end 
     end
   end
@@ -85,6 +88,52 @@ RSpec.describe Shelter, type: :model do
     describe '.pet_count' do
       it 'returns the number of pets at the given shelter' do
         expect(@shelter_1.pet_count).to eq(3)
+      end
+    end
+
+    describe '.adoptable_pets_average_age' do 
+      it 'returns the average age of adoptable pets at a shelter' do 
+        expect(@shelter_1.adoptable_pets_average_age).to eq 4
+      end 
+    end
+
+      describe '.adopted_pets_count' do 
+      it 'returns the count of adopted pets at a shelter' do 
+
+        application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
+        application_2 = Application.create!(name: "Kim G", street_address:"2000 Something Blvd", city: "Denver", state: "CO", zipcode: 80124)
+        application_pet1 = ApplicationPet.create!(application: application_1, pet: @pet_2)
+        application_pet2 = ApplicationPet.create!(application: application_2, pet: @pet_4)
+        application_1.status = "Approved"
+        application_1.save
+        application_2.status = "Approved"
+        application_2.save
+
+        expect(@shelter_1.adopted_pets_count).to eq 2
+      end 
+
+    end
+
+    describe '.pending_pets_for_review' do 
+      it 'returns a list of pets that has not been approved/rejected' do 
+        application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
+        application_2 = Application.create!(name: "Kim G", street_address:"2000 Something Blvd", city: "Denver", state: "CO", zipcode: 80124)
+        application_pet1 = ApplicationPet.create!(application: application_1, pet: @pet_2)
+        application_pet2 = ApplicationPet.create!(application: application_2, pet: @pet_4)
+    
+        expect(@shelter_1.pending_pets_for_review).to eq([@pet_2, @pet_4])
+      end
+    end
+
+    describe '.pending_applications_for_pet' do 
+      it 'returns a list of pets that has not been approved/rejected' do 
+        application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
+        application_2 = Application.create!(name: "Kim G", street_address:"2000 Something Blvd", city: "Denver", state: "CO", zipcode: 80124)
+        application_pet1 = ApplicationPet.create!(application: application_1, pet: @pet_2)
+        application_pet2 = ApplicationPet.create!(application: application_2, pet: @pet_4)
+    
+        expect(@shelter_1.pending_applications_for_pet(@pet_2.id)).to eq([application_1])
+        expect(@shelter_1.pending_applications_for_pet(@pet_4.id)).to eq([application_2])
       end
     end
   end
