@@ -97,7 +97,7 @@ RSpec.describe Shelter, type: :model do
       end 
     end
 
-       describe '.adopted_pets_count' do 
+      describe '.adopted_pets_count' do 
       it 'returns the count of adopted pets at a shelter' do 
 
         application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
@@ -111,6 +111,18 @@ RSpec.describe Shelter, type: :model do
 
         expect(@shelter_1.adopted_pets_count).to eq 2
       end 
+
+    end
+
+    describe '.pending_pets_for_review' do 
+      it 'returns a list of pets that has not been approved/rejected' do 
+        application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
+        application_2 = Application.create!(name: "Kim G", street_address:"2000 Something Blvd", city: "Denver", state: "CO", zipcode: 80124)
+        application_pet1 = ApplicationPet.create!(application: application_1, pet: @pet_2)
+        application_pet2 = ApplicationPet.create!(application: application_2, pet: @pet_4)
+    
+        expect(@shelter_1.pending_pets_for_review).to eq([@pet_2, @pet_4])
+      end
     end
   end
 end
