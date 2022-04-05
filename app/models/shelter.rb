@@ -43,4 +43,5 @@ class Shelter < ApplicationRecord
   def self.shelter_with_pending_app
     Shelter.joins(pets: :applications).where("applications.status = 'Pending'").order(:name)
   end
+
 end
