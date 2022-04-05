@@ -21,7 +21,7 @@
 			<p><%= pet.adoptable %></p>
 	<p><%= button_to "Adopt #{pet.name}", "/applications/#{@application.id}/pets", method: :post, params: {:pet_id => pet.id, :application_id => @application.id}%></p>
 	<% end %>
-	<% else %>
+	<% elsif @pet_found && !@pet_found.first%>
 		<p>No pet by this name is found</p>
 	<% end %>
 <% end %>
