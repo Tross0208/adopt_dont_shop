@@ -84,7 +84,22 @@ RSpec.describe 'the applications show' do
 		expect(page).to_not have_content(@pet_1.name)
 		expect(page).to_not have_content("Description")
 	end
-		
+		it 'shows names for partial matches' do
+
+			visit "/applications/#{@application.id}"
+			fill_in "Search by name", with: "ann"
+			click_button "Submit"
+			click_button "Adopt #{@pet_1.name}"
+
+			expect(current_path).to eq("/applications/#{@application.id}")
+
+			within("#pets_selected") do
+				expect(page).to have_content(@pet_1.name)
+				expect(page).to have_content(@pet_1.breed)
+				expect(page).to have_content(@pet_1.age)
+			end
+
+		end
 
 
 
