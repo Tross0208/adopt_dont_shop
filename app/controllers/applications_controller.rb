@@ -1,5 +1,8 @@
 class ApplicationsController < ApplicationController
 
+  def index
+    @applications = Application.all 
+  end
 
   def new
     @application = Application.new
@@ -10,8 +13,9 @@ class ApplicationsController < ApplicationController
     if application.save
       redirect_to "/applications/#{application.id}"
     else
+      flash[:notice] = "Error: all requested areas must be filled!"
+      # render :new
       redirect_to "/applications/new"
-      flash[:alert] = "Error: all requested areas must be filled!"
     end
   end
 
