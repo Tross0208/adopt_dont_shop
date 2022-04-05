@@ -19,13 +19,15 @@ RSpec.describe 'the admin shelters index' do
     expect(@shelter_2.name).to appear_before(@shelter_1.name)
   end 
 
-  it 'has a section that lists shelters with pending status' do 
+  it 'has a section that lists shelters with pending status alphabetically' do 
     application_1 = Application.create!(name: "Tyler R", street_address:"1000 Something Blvd", city: "Denver", state: "CO", zipcode: 80123)
     application_2 = Application.create!(name: "Kim G", street_address:"2000 Something Blvd", city: "Denver", state: "CO", zipcode: 80124)
     application_pet1 = ApplicationPet.create!(application: application_1, pet: @pirate)
-    application_1.description = "I am lonely and need fluffy mammals"
+    application_pet2 = ApplicationPet.create!(application: application_2, pet: @lucille)
     application_1.status = "Pending"
     application_1.save
+    application_2.status = "Pending"
+    application_2.save
 
     visit '/admin/shelters'
  
@@ -33,7 +35,17 @@ RSpec.describe 'the admin shelters index' do
      expect(page).to have_content("Shelters with Pending Applications:")
      expect(page).to have_content(@shelter_1.name)
      expect(page).to_not have_content(@shelter_2.name)
-     expect(page).to_not have_content(@shelter_3.name)
+     expect(page).to have_content(@shelter_3.name)
+     expect(@shelter_1.name).to appear_before(@shelter_3.name)
     end
   end 
+
+
+  it 'has a link for shelters via their name' do 
+    visit '/admin/shelters'
+
+      click_on "#{@shelter_1.name}"
+      expect(current_path).to eq("/admin/shelters/#{@shelter_1.id}")
+
+  end
 end 
