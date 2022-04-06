@@ -10,7 +10,7 @@
 		<% @application.pets_added.each_with_index do |pet, index| %>
 		  <section id="pets_added-<%=pet.id%>">
 		  	 <%= render partial: '/partials/pet_info',locals:{index: index, pet: pet} %>
-			
+
 			<% if @application.application_pet_status(pet.id) %>
 				<h4>Application for <%=pet.name%> <%=@application.application_pet_status(pet.id)%></h4>
 			<% else %>
@@ -22,21 +22,15 @@
 						<%= render partial: '/partials/rejection_button', locals:{pet: pet, application_id: @application.id} %>
 				<% end %>
 			<% end %>
-	
+
 			<% if @application.all_pets_reviewed? %>
 				<% if @application.all_pets_approved? %>
 					<% @application.approve_application %>
 				<% elsif %>
 					<% @application.reject_application %>
 				<%end %>
-			<% end %>	
+			<% end %>
 		  </section>
 		<% end %>
-			<h2>Application Status: <%=@application.status%></h2>
 	<% end %>
-
-
-
-		
-
-
+	<h2>Application Status: <%=@application.status%></h2>
