@@ -16,11 +16,8 @@
 			<%=link_to "Application for #{pet.name}", "/admin/applications/#{app.id}" %>
 		<% end %>
 	<% end %>
-
-
 </section>
 
 <h4 id="statistics">Number of Adopted Pets: <%= @shelter.adopted_pets_count %></h4> 
 <p><%= link_to "All pets at #{@shelter.name}", "/shelters/#{@shelter.id}/pets" %></p>
-
 <p><%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %></p>
