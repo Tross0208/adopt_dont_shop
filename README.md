@@ -5,103 +5,70 @@
 
 
 ### DTR: Essential Questions to Discuss 
-What are your learning goals for the project?
-
-K: ActiveRecord, MVC flow
-
+What are your learning goals for the project?<br>
+K: ActiveRecord, MVC flow<br>
 T: ActiveRecord, joins
 
-What do I offer the team?
-
-K: I am driven and will keep trying until I can make it work.
-
+What do I offer the team?<br>
+K: I am driven and will keep trying until I can make it work.<br>
 T: Positive attitude!
 
-What learning do you want to focus on in the project?
-
-K: MVC flow
-
+What learning do you want to focus on in the project?<br>
+K: MVC flow<br>
 T: ActiveRecord, joins
 
-
-Do you like to work alone first?
-
-K: No preference.
-
+Do you like to work alone first?<br>
+K: No preference.<br>
 T: No
 
-Do you like to speak out loud as you are learning?
-
+Do you like to speak out loud as you are learning?<br>
 T: No
 
-What do you need (resources, environment, communication) to do your best work?
-
-K: Coffee, and open and prompt communication.
-
+What do you need (resources, environment, communication) to do your best work?<br>
+K: Coffee, and open and prompt communication.<br>
 T: Caffeine, almonds, naps
 
-How do you appreciate receiving communication from others?
-
+How do you appreciate receiving communication from others?<br>
 K:Timely and direct.
 
-How do you appreciate receiving feedback from others?
-
-K:Timely and constructive.
-
+How do you appreciate receiving feedback from others?<br>
+K:Timely and constructive.<br>
 T: Honestly
 
-How do you best give feedback to others?
-
-K: I can adapt.
-
+How do you best give feedback to others?<br>
+K: I can adapt.<br>
 T: Socratically
 
-What are your scheduling preferences?
-
-K: work as much as needed. Usually prefer a day off during weekend.
-
+What are your scheduling preferences?<br>
+K: work as much as needed. Usually prefer a day off during weekend.<br>
 T: Busy Wednesday evenings, one weekend evening
 
-What tools do you want to use to manage the project?
-
-K: Github; slack
-
+What tools do you want to use to manage the project?<br>
+K: Github; slack<br>
 T: github, slack
 
-How do you want the group to solve problems when members run into issues with features of the project?
-
-K: Regroup and resolve the issue together.
-
+How do you want the group to solve problems when members run into issues with features of the project?<br>
+K: Regroup and resolve the issue together.<br>
 T: Regroup and resolve
 
-When will we check in again about our process and progress?
-
-K: As often as needed while setting goals for the next meet.
-
+When will we check in again about our process and progress?<br>
+K: As often as needed while setting goals for the next meet.<br>
 T: At least daily, with possible exceptions on weekends
 
-How do you know if a project is successful? 
-
-K: Finish what we set out to do and learn as much as we can during the process.
-
+How do you know if a project is successful? <br>
+K: Finish what we set out to do and learn as much as we can during the process.<br>
 T: If the project is complete and understood by all members
 
-How can we achieve success as a group?
-
-K:  Clearly identify what each person wants out of a project and respect each other’s goal.
-
+How can we achieve success as a group?<br>
+K:  Clearly identify what each person wants out of a project and respect each other’s goal.<br>
 T: Set short term and long term goals
 
-How can we achieve success as individuals?
-
-K: Try our best to accomplish our individual goals in the project while helping each other.
-
+How can we achieve success as individuals?<br>
+K: Try our best to accomplish our individual goals in the project while helping each other.<br>
 T: Try to maintain a steady pace
 
-Is there anything else we should know about one another before we start working?
-
-K: I am not great with taking breaks-please feel free to ask for a pom anytime when we are working together. 
-
+Is there anything else we should know about one another before we start working?<br>
+K: I am not great with taking breaks-please feel free to ask for a pom anytime when we are working together. <br>
 T: I am not known to communicate often or respond to messages quickly, but am trying to improve. 
 
 ## Learning Goals
