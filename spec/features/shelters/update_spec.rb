@@ -22,6 +22,7 @@ RSpec.describe 'the shelter update' do
       fill_in 'City', with: 'Wichita'
       uncheck 'Foster program'
       fill_in 'Rank', with: 10
+
       click_button 'Save'
 
       expect(page).to have_current_path('/shelters')

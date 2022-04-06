@@ -1,6 +1,4 @@
-<h1>Edit Shelter</h1>
-
-<%= form_with url: "/shelters/#{@shelter.id}", method: :patch, local: true do |f| %>
+<%= form_with url: path, method: :method do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 

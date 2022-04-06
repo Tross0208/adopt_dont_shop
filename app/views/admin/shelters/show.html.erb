@@ -1,6 +1,9 @@
 <h1><%= @shelter.name %></h1>
 <p>Rank: <%= @shelter.rank %></p>
+<p>Street Address: <%= @shelter.street_address %></p>
 <p>City: <%= @shelter.city %></p>
+<p>State: <%= @shelter.state %></p>
+<p>Zipcode: <%= @shelter.zipcode %></p>
 
 <p class="pet-count">Pets at <%= @shelter.name %>: <%= @shelter.pet_count %></p>
 <p class=Adoptable-pet-average-age">Adoptable Pets Average Age: <%= @shelter.adoptable_pets_average_age %></p>
@@ -13,11 +16,8 @@
 			<%=link_to "Application for #{pet.name}", "/admin/applications/#{app.id}" %>
 		<% end %>
 	<% end %>
-
-
 </section>
 
 <h4 id="statistics">Number of Adopted Pets: <%= @shelter.adopted_pets_count %></h4> 
 <p><%= link_to "All pets at #{@shelter.name}", "/shelters/#{@shelter.id}/pets" %></p>
-
 <p><%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %></p>

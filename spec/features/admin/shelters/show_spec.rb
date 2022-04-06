@@ -78,4 +78,15 @@ RSpec.describe 'the admin shelter show' do
       expect(current_path).to eq("/admin/applications/#{application_1.id}")
     end
   end
+
+  it 'displays the shelter name and full address' do 
+    shelter_1 = Shelter.create(name: 'Aurora shelter', street_address: '100 street blvd', city: 'Aurora, CO', state: 'CO', zipcode: 80152, foster_program: false, rank: 9)
+
+    visit "/admin/shelters/#{shelter_1.id}" 
+
+    expect(page).to have_content(shelter_1.street_address)
+    expect(page).to have_content(shelter_1.state)
+    expect(page).to have_content(shelter_1.city)
+    expect(page).to have_content(shelter_1.zipcode)
+  end
 end

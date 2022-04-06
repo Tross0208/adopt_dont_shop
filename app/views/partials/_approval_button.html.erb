@@ -1,0 +1,1 @@
+<p><%= button_to "Approve application for #{pet.name}", "/admin/applications/#{application_id}/pets", method: :patch, params: {:pet_id => pet.id, :application_id => @application.id, :status => 'approved'}%></p>
