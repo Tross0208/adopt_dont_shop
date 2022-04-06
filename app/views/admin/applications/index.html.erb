@@ -1,9 +1,3 @@
-<h1>All Applications</h1>
 
-<% @applications.each_with_index do |application, index| %>
-	<h2><%= link_to "Application No. #{index+1}", "/admin/applications/#{application.id}" %></h2>
-	<p>Name: <%= application.name %></p>
-	<p>Address: <%= application.street_address%>, <%= application.city %>, <%= application.state %> <%= application.zipcode %></p>
-	<h3>Application status: <%=application.status%></h3>
+<%= render partial: '/partials/application_index', locals:{path: "/admin/applications"} %>
 
-<% end %>

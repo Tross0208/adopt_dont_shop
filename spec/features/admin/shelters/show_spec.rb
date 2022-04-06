@@ -88,7 +88,5 @@ RSpec.describe 'the admin shelter show' do
     expect(page).to have_content(shelter_1.state)
     expect(page).to have_content(shelter_1.city)
     expect(page).to have_content(shelter_1.zipcode)
-
-
   end
 end

@@ -66,7 +66,7 @@ RSpec.describe 'the applications show' do
 	 	expect(page).to have_content("Description")
 
 	 	fill_in "Description", with: "I eat my vegetables"
-		click_button "Submit Description"
+		click_button "Submit Application"
 
 	 	expect(current_path).to eq("/applications/#{@application.id}")
 
@@ -82,6 +82,7 @@ RSpec.describe 'the applications show' do
 		expect(page).to have_content("Search by name")
 		expect(page).to_not have_content(@pet_1.name)
 		expect(page).to_not have_content("Description")
+		expect(page).to_not have_button ("Submit Application")
 	end
 
 	it 'shows names for partial matches' do

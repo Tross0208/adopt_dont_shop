@@ -14,7 +14,6 @@ class ApplicationsController < ApplicationController
       redirect_to "/applications/#{application.id}"
     else
       flash[:notice] = "Error: all requested areas must be filled!"
-      # render :new
       redirect_to "/applications/new"
     end
   end
@@ -24,25 +23,21 @@ class ApplicationsController < ApplicationController
     if @application.pets_added != []
       @pets_added = @application.pets_added
     end
-
     if params[:search_by_name]
       @pet_found = Pet.search_by_name(params[:search_by_name])
     end
-
   end
 
-    def update
-      @application = Application.find(params[:id])
-      if params[:description]
+  def update
+    @application = Application.find(params[:id])
+    if params[:description]
 
-        @application.description = params[:description]
-        @application.status = "Pending"
-        @application.save
-      end
-      redirect_to "/applications/#{@application.id}"
+      @application.description = params[:description]
+      @application.status = "Pending"
+      @application.save
     end
-
-
+    redirect_to "/applications/#{@application.id}"
+  end
 
 private
 
