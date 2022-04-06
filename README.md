@@ -8,60 +8,101 @@
 What are your learning goals for the project?
 
 K: ActiveRecord, MVC flow
+
 T: ActiveRecord, joins
-What are your strengths and areas of growth?
+
 What do I offer the team?
+
 K: I am driven and will keep trying until I can make it work.
+
 T: Positive attitude!
+
 What learning do you want to focus on in the project?
+
 K: MVC flow
+
 T: ActiveRecord, joins
- How can our team help support one anothers in improving these skills?
-How do you learn best with coding? How do you like to collaborate with others?
+
+
 Do you like to work alone first?
+
 K: No preference.
+
 T: No
+
 Do you like to speak out loud as you are learning?
+
 T: No
+
 What do you need (resources, environment, communication) to do your best work?
+
 K: Coffee, and open and prompt communication.
+
 T: Caffeine, almonds, naps
-How do you communicate best?
+
 How do you appreciate receiving communication from others?
+
 K:Timely and direct.
 
 How do you appreciate receiving feedback from others?
+
 K:Timely and constructive.
+
 T: Honestly
+
 How do you best give feedback to others?
+
 K: I can adapt.
+
 T: Socratically
-What scheduling restraints do you have?
- What are your scheduling preferences?
+
+What are your scheduling preferences?
+
 K: work as much as needed. Usually prefer a day off during weekend.
+
 T: Busy Wednesday evenings, one weekend evening
+
 What tools do you want to use to manage the project?
+
 K: Github; slack
+
 T: github, slack
 
 How do you want the group to solve problems when members run into issues with features of the project?
+
 K: Regroup and resolve the issue together.
+
 T: Regroup and resolve
+
 When will we check in again about our process and progress?
+
 K: As often as needed while setting goals for the next meet.
+
 T: At least daily, with possible exceptions on weekends
+
 How do you know if a project is successful? 
+
 K: Finish what we set out to do and learn as much as we can during the process.
+
 T: If the project is complete and understood by all members
+
 How can we achieve success as a group?
+
 K:  Clearly identify what each person wants out of a project and respect each other’s goal.
+
 T: Set short term and long term goals
+
 How can we achieve success as individuals?
+
 K: Try our best to accomplish our individual goals in the project while helping each other.
+
 T: Try to maintain a steady pace
+
 Is there anything else we should know about one another before we start working?
+
 K: I am not great with taking breaks-please feel free to ask for a pom anytime when we are working together. 
-T: I am not known to communicate often or respond to messages quickly. 
+
+T: I am not known to communicate often or respond to messages quickly, but am trying to improve. 
 
 ## Learning Goals
 
